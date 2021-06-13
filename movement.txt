@@ -12,6 +12,7 @@
         transform.Translate(Vector3.right * horizontal * speed * Time.deltaTime);
        transform.position = transform.position +  Vector3.right * 12 * Time.deltaTime;
 	transform.localscale = new vector2 (1,1);
+	transform.rotation = Quaternion.LookRotation(Vector3.right);
 
 
         if (Input.GetKey(KeyCode.W))

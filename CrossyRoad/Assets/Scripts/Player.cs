@@ -37,7 +37,11 @@ public class Player : MonoBehaviour
             transform.rotation = Quaternion.LookRotation(Vector3.right);
             transform.Translate(Vector3.back * speed * Time.deltaTime);
 
-
+        }
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            transform.rotation = Quaternion.LookRotation(Vector3.forward);
+            transform.Translate(Vector3.back * speed * Time.deltaTime);
 
         }
 

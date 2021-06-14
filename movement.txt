@@ -75,3 +75,12 @@
         transform.position = new Vector3(background.position.x, 0, 		          
 	transform.position.z);
         //transform.position = background.position;
+
+	IEnumerator Random()
+        {
+            yield return new WaitForSeconds(2);
+            StartCoroutine(Random);
+
+        }
+    	Instantiate();
+    	InvokeRepeating();

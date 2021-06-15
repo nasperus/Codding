@@ -9,24 +9,41 @@ public class Spawner : MonoBehaviour
     
     void Start()
     {
-        InvokeRepeating(nameof(CallFunc), 1, 2);
+        
+        StartCoroutine(SpawnRoutine());
+
     }
 
-  
+
     void Update()
     {
+    }
+    
+
+     IEnumerator SpawnRoutine()
+    {
+        int x = 1;
+
+        while( x < 10)
+        {
+            yield return new WaitForSeconds(2);
+            GameObject obj = Instantiate(spawnerObject, SpawnEnemy(), spawnerObject.transform.rotation);
+            Destroy(obj, 5);
+            x++;
+        }
         
+
+
     }
 
     private Vector3 SpawnEnemy()
     {
-        Vector3 pos = new Vector3(-15 ,1,1);
+        Vector3 pos = new Vector3(-15 ,1,2);
         return pos;
     }
 
     private void CallFunc()
     {
-       GameObject obj = Instantiate(spawnerObject, SpawnEnemy(), spawnerObject.transform.rotation);
-        Destroy(obj, 5);
+      
     }
 }

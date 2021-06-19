@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -42,13 +43,25 @@ public class Player : MonoBehaviour
         {
             transform.rotation = Quaternion.LookRotation(Vector3.forward);
             transform.Translate(Vector3.back * speed * Time.deltaTime);
-
+            
+            
         }
 
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Respawn"))
+        {
+         
+            Destroy(gameObject);
+            SceneManager.LoadScene("Scenes/SampleScene");
 
-  
-  
+        }
+    }
+
+
+
+
 
 }

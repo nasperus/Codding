@@ -17,19 +17,22 @@ public class Spawner : MonoBehaviour
 
     void Update()
     {
+        
+      
     }
     
 
      IEnumerator SpawnRoutine()
     {
-        int x = 1;
 
-        while( x < 10)
+        
+
+        while (true)
         {
             yield return new WaitForSeconds(2);
             GameObject obj = Instantiate(spawnerObject, SpawnEnemy(), spawnerObject.transform.rotation);
             Destroy(obj, 5);
-            x++;
+            
         }
         
 
@@ -42,8 +45,7 @@ public class Spawner : MonoBehaviour
         return pos;
     }
 
-    private void CallFunc()
-    {
-      
-    }
+    
+    
+  
 }
